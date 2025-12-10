@@ -1,0 +1,12 @@
+services:
+  hass-configurator:
+    container_name: configurator
+    image: ghcr.nju.edu.cn/hasscc/configurator
+    build: .
+    ports:
+      - "8099:8099"
+    volumes:
+      - /Users/alone/lib/hass:/homeassistant
+    environment:
+      HC_HASS_API_PASSWORD: "${HC_HASS_API_PASSWORD}"
+    restart: unless-stopped
