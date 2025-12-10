@@ -20,5 +20,6 @@ RUN \
 
 COPY rootfs /
 
+ENTRYPOINT [ "/run.sh" ]
 CMD [ "hass-configurator", "/etc/configurator.conf" ]
 HEALTHCHECK --interval=1m --start-period=10s CMD curl --fail http://127.0.0.1:8099 || exit 1
